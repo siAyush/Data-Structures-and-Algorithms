@@ -5,12 +5,19 @@ between separate, independent regions in plain text or other data streams.
 { }	Braces (also called curly brackets)
 [ ]	Brackets
 < >	Angle brackets
-" "	commonly used to denote string literals.
-' '	commonly used to denote character literals.
 '''
-import stack
+
+from stack import Stack
 def d_match(text):
-    left ='({[<''
+    stk = Stack()
+    left ='({[<'
     right = ')}]>'
     for i in text:
-        if i in
+        if i in left:
+            stk.push(i)
+        elif i in right:
+            if len(stk) == 0:
+                return False
+            elif right.index(i) == left.index(stk.pop()):
+                print(i + ' delimiter is matched')       # it returns nothing
+                                                         # when delimiter is not matched
