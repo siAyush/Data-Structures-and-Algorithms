@@ -19,10 +19,8 @@ k = []
 for i in reg:
     if i in ri:
         l.append(i)
-        #print(i)
     if i in le:
         k.append(i)
-        #print(i)
 if len(k) != len(l):
     print('No')
 if len(k) == len(l):
