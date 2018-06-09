@@ -5,19 +5,25 @@ between separate, independent regions in plain text or other data streams.
 { }	Braces (also called curly brackets)
 [ ]	Brackets
 < >	Angle brackets
+This function return Yes if expression has both opening and closing delimiter
+else it return No.
 '''
-
-from stack import Stack
-def d_match(text):
-    stk = Stack()
-    left ='({[<'
-    right = ')}]>'
-    for i in text:
-        if i in left:
-            stk.push(i)
-        elif i in right:
-            if len(stk) == 0:
-                return False
-            elif right.index(i) == left.index(stk.pop()):
-                print(i + ' delimiter is matched')       # it returns nothing
-                                                         # when delimiter is not matched
+import re
+s = input()
+reg = re.compile(r'[\(\)\[\]\{\}]').findall(s)
+ri = '([{'
+le = ')]}'
+# list is used as stack
+l = []
+k = []
+for i in reg:
+    if i in ri:
+        l.append(i)
+        #print(i)
+    if i in le:
+        k.append(i)
+        #print(i)
+if len(k) != len(l):
+    print('No')
+if len(k) == len(l):
+    print('Yes')
