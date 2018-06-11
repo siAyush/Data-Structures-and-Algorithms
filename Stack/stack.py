@@ -29,3 +29,10 @@ class Stack():
             print('Stack is Empty')
         else:
             return self._stack[-1]
+
+    def is_empty(self):
+        'check stack is empty or not.'
+        if len(self._stack) == 0:
+            print('Stack is empty')
+        else:
+            print('Stack is not empty')
