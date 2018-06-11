@@ -1,6 +1,6 @@
 '''
 This is the implementation of stack using python3.So, stack works on principle
-'First in Last Out (FILO)'.This implementation uses adapter design pattern to
+'Last in First Out (FILO)'.This implementation uses adapter design pattern to
 adapt list class of python3.
 '''
 
