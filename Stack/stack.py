@@ -8,9 +8,9 @@ class Stack():
     def __init__(self):
         self._stack = []         # empty list to store items
 
-    def __len__(self):
+    def size(self):
         '''return length of stack'''
-        return(len(self._stack))
+        return len(self._stack)
 
     def push(self,item):
         '''to add items in stack'''
