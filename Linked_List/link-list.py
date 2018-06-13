@@ -23,17 +23,47 @@ class LinkedList():
         else:
             return False
 
-    def push(self,e):
-        'add element to the linkedlist'
+    def insert_start(self,e):
+        'add element at the start of linkedlist'
         newNode = Node(e)
         newNode.next = self.head
         self.head = newNode
         self.size += 1
 
+    def remove(self,e):
+        'remove any element from the linkedlist'
+        if self.size == 0:
+            print('linkedlist is empty')
+        currentN = self.head             # current Node
+        previousN = None                    # previous Node
+        while currentN.data != e:
+            previousN = currentN
+            currentN = currentN.next
+        if previousN is None:              # if element is head node
+            self.head = currentN.next
+        else:
+            previousN.next = currentN.next
+        self.size -= 1
 
+    def pop(self):
+        'remove the first(lastly added) element'
+        removed = self.head
+        self.head = self.head.next
+        self.size -= 1
+        return removed
 
-l = LinkedList()
-l.push(5)
-d = l.length()
-print(l.head.data)
-print(d)
+    def insertEnd(self,data):
+        'add element at the end of linkedlist'
+        currentN = self.head
+        newNode = Node(data)
+        while currentN.next != None:
+            currentN = currentN.next
+        currentN.next = newNode
+        self.size += 1
+
+    def traverse(self):
+        'print all elements of linkedlist'
+        currentN = self.head
+        while currentN != None:
+            print('Node data %d'%currentN.data)
+            currentN = currentN.next
