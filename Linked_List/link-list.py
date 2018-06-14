@@ -9,16 +9,16 @@ class Node():                        # Node Class
 
 class LinkedList():
     def __init__(self):
-        self.size = 0                # number of elements in linked list
+        self._size = 0                # number of elements in linked list
         self.head = None             # reference to the head node
 
-    def length(self):
+    def size(self):
         'return the number of elements in linked list'
-        return self.size
+        return self._size
 
     def is_empty(self):
         'return true if linked list is empty'
-        if len(self.size) == 0:
+        if self._size == 0:
             return True
         else:
             return False
