@@ -75,6 +75,7 @@ class DLL():                          # Double linked list (DLL)
                 current.next = newNode
                 old_next.prev = newNode
                 newNode.prev = current
+                newNode.next = old_next
             self._size += 1
         else:
             print('There is no element %d'%after)
@@ -102,35 +103,63 @@ class DLL():                          # Double linked list (DLL)
 
     def insert_in_between(self,data,after,before):
         'add element in between the given elements'
-        
-
+        current = self.head
+        while current.next is not None:
+            if current.data == after and current.next.data == before:
+                break
+            current = current.next
+        if current.data == after and current.next.data == before:
+            newNode = Node(data)
+            old_next = current.next
+            current.next = newNode
+            old_next.prev = newNode
+            newNode.prev = current
+            newNode.next = old_next
+            self._size += 1
+        else:
+            print('There is no adjacent elements of value %d,%d'%(after,before))
 
     def traverse(self):
-        'print all elements of linkedlist'
+        'print all elements of doubly linkedlist'
         current = self.head
         while current != None:
             print('Node data %d'%current.data)
             current = current.next
 
+    def remove_start(self):
+        'it removes the first(last added) element of doubly linkedlist'
+        current = self.head.next
+        self.head.next.prev = None
+        self.head.next = None
+        self.head = current
+        self._size -= 1
 
+    def remove_end(self):
+        'it removes the last element of doubly linkedlist'
+        current = self.tail.prev
+        self.tail.prev.next = None
+        self.tail.prev = None
+        self.tail = current
+        self._size -= 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-l  = DLL()
-l.insert_start(5)
-l.insert_start(6)
-l.insert_end(4)
-l.insert_before(56,6)
-l.traverse()
-#print(l.head.next.data)
+    # TODO:  remove in between
+    def remove_in_between(self,data):
+        'it removes the given element from doubly linkedlist'
+        current = self.head
+        while current.next is not None:
+            if current.data == data:
+                break
+            current = current.next
+        if current.data == data:
+            if current.data == self.head.data:
+                self.remove_start()
+            elif current.data == self.tail.data:
+                self.remove_end()
+            else:
+                current_prev = current.prev
+                current_next = current.next
+                current.prev.next = current_next
+                current.next.prev = current_prev
+                self._size -= 1
+        else:
+            print('No element of value %d to remove'%data)
