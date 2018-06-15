@@ -142,7 +142,7 @@ class DLL():                          # Double linked list (DLL)
         self.tail = current
         self._size -= 1
 
-    # TODO:  remove in between
+
     def remove_in_between(self,data):
         'it removes the given element from doubly linkedlist'
         current = self.head
