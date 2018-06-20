@@ -64,10 +64,6 @@ class Binary_Tree():
             node.leftchild = self._removeNode(temp.data,node.leftchild)
         return node
 
-    '''def _getPredecessor(self,node):
-        if node.rightchild:
-            return self._getPredecessor(node.rightchild)
-        return node'''
     def _getPredecessor(self,node):
         current = node.rightchild
         while current != None:
@@ -107,8 +103,4 @@ bst.insert(10);
 bst.insert(13);
 bst.insert(5);
 bst.insert(14);
-#print(bst.getMin())
-bst.remove(10)
-#print(bst.root.data)
-#print(bst.)
 bst.traverse()
