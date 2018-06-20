@@ -82,27 +82,18 @@ class Binary_Tree():
             self._traverse_in_order(node.rightchild)
 
     def getMax(self):
-        'Return the max value in tree.'
-        if self.root:
-            return self._getMaxValue(self.root)
-
-    def _getMaxValue(self,node):
-        if node.rightchild:
-            return self._getMaxValue(node.rightchild)
-        return node.data
+        'Return the max value of tree'
+        current  = self.root
+        while current.rightchild != None:
+            current = current.rightchild
+        return current.data
 
     def getMin(self):
-        'Return the min value in tree.'
-        if self.root:
-            return self._getMinValue(self.root)
-
-    def _getMinValue(self,node):
-        if node.leftchild:
-            return self._getMinValue(node.leftchild)
-        return node.data
-
-
-
+        'Return the min value of the tree'
+        current = self.root
+        while current.leftchild != None:
+            current = current.leftchild
+        return current.data
 
 
 
@@ -112,6 +103,7 @@ bst.insert(13);
 bst.insert(5);
 bst.insert(14);
 #print(bst.getMin())
-bst.remove(10)
+#bst.remove(10)
 #print(bst.root.data)
 bst.traverse()
+print(bst.getMin())
