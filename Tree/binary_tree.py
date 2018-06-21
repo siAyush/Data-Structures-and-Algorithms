@@ -58,7 +58,7 @@ class Binary_Tree():
                 temp = node.leftchild
                 del node
                 return temp
-            # node with both childs
+            # node with two childs
             temp = self._getPredecessor(node.leftchild)
             node.data = temp.data
             node.leftchild = self._removeNode(temp.data,node.leftchild)
@@ -70,8 +70,8 @@ class Binary_Tree():
             current = current.rightchild
         return node
 
-    def traverse(self):
-        'Print all elements of tree (traverse in order).'
+    def in_order_traverse(self):
+        'Print all elements of tree in traverse in order manner.'
         if self.root:
             self._traverse_in_order(self.root)
 
@@ -96,6 +96,49 @@ class Binary_Tree():
             current = current.leftchild
         return current.data
 
+    def height_of_tree(self):
+        'Reurn the height of tree'
+        if self.root:
+            return self._height(self.root)
+
+    def _height(self,node):
+        if not node:
+            return -1
+        left_tree = self._height(node.leftchild)
+        right_tree = self._height(node.rightchild)
+        height = max(left_tree,right_tree)+1
+        return height
+
+    def delete_tree(self):
+        'It delete the whole tree.'
+        del self.root
+        self.root = None
+
+    def is_empty(self):
+        if self.root is None:
+            return True
+        return False
+
+    def breadth_first_search(self):
+        'Print all elements of tree in breadth first search manner.'
+        queue = []
+        if self.root:
+            queue.append(self.root)                    # store visited nodes
+        while len(queue) != 0:
+            node = queue[0]
+            if node.leftchild:
+                queue.append(node.leftchild)
+            if node.rightchild:
+                queue.append(node.rightchild)
+            print(queue.pop(0).data)
+
+
+
+
+
+
+
+
 
 
 bst = Binary_Tree();
@@ -103,4 +146,5 @@ bst.insert(10);
 bst.insert(13);
 bst.insert(5);
 bst.insert(14);
-bst.traverse()
+#bst.in_order_traverse()
+bst.breadth_first_search()
