@@ -71,16 +71,40 @@ class Binary_Tree():
         return node
 
     def in_order_traverse(self):
-        'Print all elements of tree in traverse in order manner.'
+        'in order traverse'
         if self.root:
-            self._traverse_in_order(self.root)
+            self._in_order_traverse(self.root)
 
-    def _traverse_in_order(self,node):
+    def _in_order_traverse(self,node):
         if node.leftchild:
-            self._traverse_in_order(node.leftchild)
+            self._in_order_traverse(node.leftchild)
         print('Node data %s'%node.data)
         if node.rightchild:
-            self._traverse_in_order(node.rightchild)
+            self._in_order_traverse(node.rightchild)
+
+    def pre_ordre_traverse(self):
+        'pre order traverse'
+        if self.root:
+            self._pre_order(self.root)
+
+    def _pre_order(self,node):
+        print('Node data %s'%node.data)
+        if node.leftchild:
+            self._pre_order(node.leftchild)
+        if node.rightchild:
+            self._pre_order(node.rightchild)
+
+    def post_order_traverse(self):
+        'post order traverse'
+        if self.root:
+            self._post_order(self.root)
+
+    def _post_order(self,node):
+        if node.leftchild:
+            self._post_order(node.leftchild)
+        if node.rightchild:
+            self._post_order(node.rightchild)
+        print('Node data %s'%node.data)
 
     def getMax(self):
         'Return the max value of tree'
@@ -141,10 +165,11 @@ class Binary_Tree():
 
 
 
+
 bst = Binary_Tree();
 bst.insert(10);
 bst.insert(13);
 bst.insert(5);
 bst.insert(14);
-#bst.in_order_traverse()
-bst.breadth_first_search()
+bst.post_order_traverse()
+#bst.breadth_first_search()
