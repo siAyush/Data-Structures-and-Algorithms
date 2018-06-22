@@ -1,6 +1,8 @@
 '''
-Binary Tree is a non-linear, hierarchical data structuresself.
-In Binary tree every node can have at most two child (left child and left child).
+This Binary Search Tree is a non-linear, hierarchical data structuresself.
+In Binary search tree every node can have at most two child
+(left child and left child).Left child is smaller than root node and right
+child is greater than root node.
 '''
 
 # Node
@@ -11,7 +13,7 @@ class Node():
         self.rightchild = None
 
 # Tree
-class Binary_Tree():
+class Binary_Search_Tree():
     def __init__(self):
         self.root = None
 
@@ -106,6 +108,19 @@ class Binary_Tree():
             self._post_order(node.rightchild)
         print('Node data %s'%node.data)
 
+    def breadth_first_search(self):
+        'Print all elements of tree in breadth first search manner.'
+        queue = []
+        if self.root:
+            queue.append(self.root)                    # store visited nodes
+        while len(queue) != 0:
+            node = queue[0]
+            if node.leftchild:
+                queue.append(node.leftchild)
+            if node.rightchild:
+                queue.append(node.rightchild)
+            print(queue.pop(0).data)
+
     def getMax(self):
         'Return the max value of tree'
         current  = self.root
@@ -138,38 +153,24 @@ class Binary_Tree():
         del self.root
         self.root = None
 
-    def is_empty(self):
-        if self.root is None:
+    def is_bst(self):
+        'Return True if tree is Binary Search Tree else Return False.'
+        current = self.root
+        order = []
+        stack = []
+        done = 0
+        while not done:
+            if current is not None :
+                stack.append(current)
+                current = current.leftchild
+            else :
+                if (len(stack) > 0):
+                    current = stack.pop()
+                    order.append(current.data)
+                    current = current.rightchild
+                else :
+                    done = 1
+        if order == sorted(order) :
             return True
-        return False
-
-    def breadth_first_search(self):
-        'Print all elements of tree in breadth first search manner.'
-        queue = []
-        if self.root:
-            queue.append(self.root)                    # store visited nodes
-        while len(queue) != 0:
-            node = queue[0]
-            if node.leftchild:
-                queue.append(node.leftchild)
-            if node.rightchild:
-                queue.append(node.rightchild)
-            print(queue.pop(0).data)
-
-
-
-
-
-
-
-
-
-
-
-bst = Binary_Tree();
-bst.insert(10);
-bst.insert(13);
-bst.insert(5);
-bst.insert(14);
-bst.post_order_traverse()
-#bst.breadth_first_search()
+        else:
+            return False
