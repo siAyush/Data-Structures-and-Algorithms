@@ -1,5 +1,5 @@
 # Data-structures-and-Algorithms
-All data structure are implemented in Python 3.
+All data structure and algorithms are implemented in Python 3.
 
 ## Stack
 - [Stack](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Stack/stack.py)
