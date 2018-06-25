@@ -9,3 +9,5 @@
 ## Linked List
 - [Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/link-list.py)
 - [Doubly Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/doubly_linked.py)
+## Tree 
+- [Binary Search Tree](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Tree/binary_search_tree.py)
