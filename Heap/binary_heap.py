@@ -15,11 +15,11 @@ class Heap():
 
 
     def fixup(self,index):
-        parent_index = int((index-1)/2)
+        parent_index = (index-1)//2
         while parent_index >= 0 and self.heap[parent_index] < self.heap[index]:
             self.heap[parent_index],self.heap[index] = self.heap[index],self.heap[parent_index]
             index = parent_index
-            parent_index = int((index-1)/2)
+            parent_index = (index-1)//2
 
     def heapsort(self):
         'Print elements of in decreasing order.'
