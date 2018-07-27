@@ -16,27 +16,6 @@ class AVL():
     def __init__(self):
         self.root = None
 
-    def insert(self,data):
-        'Insert the data in tree.'
-        self.root = self._insertNode(data,self.root)
-
-    def _insertNode(self,data,node):
-        if not node:
-            return Node(data)
-        if data < node.data:
-            if node.left_child is not None:
-                self._insertNode(data,node.left_child)
-            else:
-                node.left_child = Node(data)
-
-        if data > node.data:
-            if node.right_child is not None:
-                self._insertNode(data,node.right_child)
-            else:
-                node.right_child = Node(data)
-        node.height = max(self.calcHeight(node.left_child),self.calcHeight(node.right_child))+1
-        return self.violation(data,node)
-
     def in_order_traverse(self):
         'in order traverse'
         if self.root:
@@ -100,6 +79,39 @@ class AVL():
             node.right_child = self.rotate_right(node.right_child);
             return self.rotate_left(node)
         return node
+
+    def insert(self,data):
+        'Insert the data in tree.'
+        self.root = self._insertNode(data,self.root)
+
+    def _insertNode(self,data,node):
+        if not node:
+            return Node(data)
+        if data < node.data:
+            if node.left_child is not None:
+                self._insertNode(data,node.left_child)
+            else:
+                node.left_child = Node(data)
+
+        if data > node.data:
+            if node.right_child is not None:
+                self._insertNode(data,node.right_child)
+            else:
+                node.right_child = Node(data)
+        node.height = max(self.calcHeight(node.left_child),self.calcHeight(node.right_child))+1
+        return self.violation(data,node)
+
+    '''def remove(self):
+        if self.root:
+            self.root = self._remove_node(data,node)
+
+    def _remove_node(self,data,node):'''
+        
+
+
+
+
+
 
 
 
