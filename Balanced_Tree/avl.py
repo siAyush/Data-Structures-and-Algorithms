@@ -61,23 +61,28 @@ class AVL():
 
     def violation(self, data, node):
         balance = self.calcBalance(node)
+
         # left left heavy situation
         if balance > 1 and data < node.left_child.data:
             print("Left left heavy tree...")
             return self.rotate_right(node)
+
         # right right heavy situation
         if balance < -1 and data > node.right_child.data:
             print("Right right heavy tree...")
             return self.rotate_left(node)
+
         # left right situation
         if balance > 1 and data > node.left_child.data:
             print("Tree is left right heavy...")
-            node.left_child = self.rotate_left(node.left_child);
+            node.left_child = self.rotate_left(node.left_child)
             return self.rotate_right(node)
+
         # right left situation
         if balance < -1 and data < node.right_child.data:
-            node.right_child = self.rotate_right(node.right_child);
+            node.right_child = self.rotate_right(node.right_child)
             return self.rotate_left(node)
+
         return node
 
     def insert(self,data):
@@ -101,12 +106,66 @@ class AVL():
         node.height = max(self.calcHeight(node.left_child),self.calcHeight(node.right_child))+1
         return self.violation(data,node)
 
-    '''def remove(self):
+    def remove(self,data):
         if self.root:
-            self.root = self._remove_node(data,node)
+            self.root = self._remove_node(data,self.root)
 
-    def _remove_node(self,data,node):'''
-        
+
+    def _remove_node(self,data,node):
+        if not node:
+            return node
+
+        if data < node.data:
+            node.left_child = self._remove_node(data,node.left_child)
+        elif data > node.data:
+            node.right_child = self._remove_node(data,node.right_child)
+        else:
+            if not node.left_child and not node.right_child:
+                print("Removing a leaf node...")
+                del node
+                return None
+
+            if not node.left_child:
+                print("Removing a node with a right child...")
+                tempNode = node.right_child
+                del node
+                return tempNode
+
+            elif not node.right_child:
+                print("Removing a node with a left child...")
+                tempNode = node.left_child
+                del node
+                return tempNode
+
+            print("Removing node with two children...")
+            tempNode = self.getPredecessor(node.left_child)
+            node.data = tempNode.data
+            node.left_child = self._remove_node(tempNode.data, node.left_child)
+        if not node:
+            return node # if the tree had just a single node
+        node.height = max( self.calcHeight(node.left_child) , self.calcHeight(node.right_child) ) + 1
+        balance = self.calcBalance(node)
+
+        if balance > 1 and self.calcBalance(node.left_child) >= 0:
+            return self.rotate_right(node)
+
+        if balance > 1 and self.calcBalance(node.left_child) < 0:
+            node.left_child = self.rotate_left(node.left_child)
+            return self.rotate_right(node)
+
+        if balance < -1 and self.calcBalance(node.right_child) <= 0:
+            return self.rotate_left(node)
+
+        if balance < -1 and self.calcBalance(node.right_child) > 0:
+            node.right_child = self.rotate_right(node.right_child)
+            return self.rotate_left(node)
+        return node
+
+    def getPredecessor(self, node):
+        if node.right_child:
+            return self.getPredecessor(node.right_child)
+        return node
+
 
 
 
@@ -116,7 +175,13 @@ class AVL():
 
 
 avl = AVL()
-avl.insert(2)
-avl.insert(1)
-avl.insert(0)
+avl.insert(10)
+avl.insert(20)
+avl.insert(5)
+avl.insert(6)
+avl.insert(15)
+
+
+avl.remove(15)
+avl.remove(20)
 avl.in_order_traverse()
