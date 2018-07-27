@@ -107,6 +107,7 @@ class AVL():
         return self.violation(data,node)
 
     def remove(self,data):
+        'remove node from tree'
         if self.root:
             self.root = self._remove_node(data,self.root)
 
@@ -141,8 +142,9 @@ class AVL():
             tempNode = self.getPredecessor(node.left_child)
             node.data = tempNode.data
             node.left_child = self._remove_node(tempNode.data, node.left_child)
+
         if not node:
-            return node # if the tree had just a single node
+            return node               # if the tree had just a single node
         node.height = max( self.calcHeight(node.left_child) , self.calcHeight(node.right_child) ) + 1
         balance = self.calcBalance(node)
 
@@ -165,23 +167,3 @@ class AVL():
         if node.right_child:
             return self.getPredecessor(node.right_child)
         return node
-
-
-
-
-
-
-
-
-
-avl = AVL()
-avl.insert(10)
-avl.insert(20)
-avl.insert(5)
-avl.insert(6)
-avl.insert(15)
-
-
-avl.remove(15)
-avl.remove(20)
-avl.in_order_traverse()
