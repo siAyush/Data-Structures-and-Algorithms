@@ -15,6 +15,7 @@ Implementation of Data-structures-and-Algorithms.
 - [Doubly Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/doubly_linked.py)
 ## Tree 
 - [Binary Search Tree](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Tree/binary_search_tree.py)
+- [AVL](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Tree/avl.py)
 ## Priority Queue
 - [Priority Queue](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Priority-Queue/priority-queue.py)
 ## Heap
