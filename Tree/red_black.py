@@ -88,13 +88,15 @@ class Red_Black():
 
             elif node.data < grand_parent.data and uncle.color == Red:
                 grand_parent.color = Red
-                grand_parent.left.color = Black
-                grand_parent.right.color = Black
+                self.set_black(grand_parent.left)
+                self.set_black(grand_parent.right)
                 return grand_parent
+
+        # Case II (when uncle is black)
 
 a = Red_Black()
 a.insert(10)
-a.insert(20)
 a.insert(5)
-a.insert(7)
+a.insert(15)
+a.insert(11)
 a.in_order_traverse()
