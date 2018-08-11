@@ -61,11 +61,13 @@ class Red_Black():
                 self._insertNode(data,node.left)
             else:
                 node.left = Node(data,node)
+                node = node.left
         if data > node.data:
             if node.right:
                 self._insertNode(data,node.right)
             else:
                 node.right = Node(data,node)
+                node = node.right
         return self.violation(data,node)
 
     def violation(self,data,node):
@@ -79,9 +81,6 @@ class Red_Black():
         # Case I (when uncle and node is red)
         if node and grand_parent:
             if node.data < grand_parent.data and grand_parent.parent == None and uncle.color == Red:
-                '''grand_parent.color = Black
-                grand_parent.left.color = Black
-                grand_parent.right.color = Black'''
                 self.set_black(grand_parent)
                 self.set_black(grand_parent.left)
                 self.set_black(grand_parent.right)
