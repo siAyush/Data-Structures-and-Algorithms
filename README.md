@@ -1,5 +1,5 @@
 # Data-structures-and-Algorithms
-Data structure and Algorithms are implemented in Python 3.
+Data structure and Algorithms implemented in Python 3.
 
 
 
