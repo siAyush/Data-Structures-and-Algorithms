@@ -1,7 +1,6 @@
 # Data-structures-and-Algorithms
-All data structure and algorithms are implemented in Python 3.
+Data structure and Algorithms are implemented in Python 3.
 
-Implementation of Data-structures-and-Algorithms.
 
 
 ## Stack
