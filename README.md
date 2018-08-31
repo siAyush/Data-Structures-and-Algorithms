@@ -10,7 +10,7 @@ Data structure and Algorithms implemented in Python 3.
 - [Deque](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Queue/deque.py)
 - [Circular Queue](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Queue/circular_queue.py)
 ## Linked List
-- [Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/link-list.py)
+- [Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/linked_list.py)
 - [Doubly Linked List](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Linked_List/doubly_linked.py)
 ## Tree 
 - [Binary Search Tree](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Tree/binary_search_tree.py)
