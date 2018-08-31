@@ -21,3 +21,6 @@ Data structure and Algorithms implemented in Python 3.
 - [Heap](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Heap/binary_heap.py)
 ## HashTable
 - [HashTable](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/HashTable/hash_table.py)
+## Sorting Algorithms
+- [Bubble Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/bubble_sort.py)
+- [Selection Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/selection_sort.py)
