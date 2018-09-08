@@ -24,3 +24,7 @@ Data structure and Algorithms implemented in Python 3.
 ## Sorting Algorithms
 - [Bubble Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/bubble_sort.py)
 - [Selection Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/selection_sort.py)
+- [Insertion Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/insertion_sort.py)
+- [Merge Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/merge_sort.py)
+- [Quick Sort](https://github.com/siAyush/Data-structures-and-Algorithms/blob/master/Sorting_Algorithms/quick_sort.py)
+
