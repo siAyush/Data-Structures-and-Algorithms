@@ -44,6 +44,3 @@ def kmp_fail(pattern):
         else:
             j += 1
     return fail
-a = 'ababababababc'
-b = 'abc'
-print(kmp(a,b))
