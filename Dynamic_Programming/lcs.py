@@ -2,7 +2,7 @@
 Longest Common Subsequence (lcs) using dynamic programming.
 """
 
-data = [[None]*4 for i in range(3)]
+data = [[None]*m+1 for i in range(n+1)]
 
 
 def lcs(p, q, n, m):
@@ -19,4 +19,5 @@ def lcs(p, q, n, m):
         temp1 = lcs(p, q, n-1, m)
         temp2 = lcs(p, q, n, m-1)
         result = max(temp1, temp2)
+    data[n][m] = result
     return result
