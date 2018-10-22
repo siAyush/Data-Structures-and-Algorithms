@@ -110,9 +110,9 @@ class Binary_Search_Tree():
 
     def breadth_first_search(self):
         'Print all elements of tree in breadth first search manner.'
-        queue = []
+        queue = []                         # store visited nodes
         if self.root:
-            queue.append(self.root)                    # store visited nodes
+            queue.append(self.root)                   
         while len(queue) != 0:
             node = queue[0]
             if node.leftchild:
