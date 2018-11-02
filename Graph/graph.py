@@ -22,7 +22,7 @@ class Graph:
             result.update(secondary_map.values())
         return result
 
-    def get_edge(self,u,v):
+    def get_edge(self, u, v):
         """
         :param u: start vertex
         :param v: end vertex
