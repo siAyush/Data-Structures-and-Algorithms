@@ -38,11 +38,6 @@ class Graph:
         adj = self.outgoing if outgoing else self.incoming
         return len(adj[v])
 
-    def incident_edges(self, v, outgoing=True):
-        adj = self.outgoing if outgoing else self.incoming
-        for edge in adj[v].values():
-            yield edge
-
     def insert_vertex(self, v):
         self.outgoing[v] = {}
         if self.is_directed():
